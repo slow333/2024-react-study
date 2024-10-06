@@ -1,15 +1,14 @@
 import {Routes, Route, Outlet, Link} from "react-router-dom";
-import Home from "./pages/Home";
-import UiRender from "./pages/ui/UiRender";
+import Home from "./pages/common/Home";
+import SubMainUi from "./pages/ui/SubMainUi";
 import StateUsage from "./pages/StateUsage";
 import StateMgmt from "./pages/StateMgmt";
 import RefAndEffect, {Detail1, Detail2, Detail3} from "./pages/ref-effect/RefAndEffect";
-import NoMatch from "./pages/NoMatch";
-import FirstComponent from "./pages/ui/FirstComponent";
-import ImportExport from "./pages/ui/ImportExport";
+import Memos from "./pages/common/memos";
+import ComponentSample from "./pages/ui/ComponentSample";
 import JsxMarkup from "./pages/ui/JsxMarkup";
-import JsxScript from "./pages/ui/JsxScript";
-import {useState} from "react";
+import PropsInjection from "./pages/ui/PropsInjection";
+import {useEffect, useState} from "react";
 
 export default function App() {
   return (
@@ -17,12 +16,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}/>
-            <Route path="ui-render" element={<UiRender/>}>
-              <Route index element={<FirstComponent/>}/>
-              <Route path='component' element={<FirstComponent/>}/>
-              <Route path='import-export' element={<ImportExport/>}/>
+            <Route path="ui-render" element={<SubMainUi/>}>
+              <Route index element={<ComponentSample/>}/>
+              <Route path='component' element={<ComponentSample/>}/>
               <Route path='jsx-markup' element={<JsxMarkup/>}/>
-              <Route path='jsx-script' element={<JsxScript/>}/>
+              <Route path='props-injection' element={<PropsInjection/>}/>
             </Route>
             <Route path="state" element={<StateUsage/>}/>
             <Route path="state-mgmt" element={<StateMgmt/>}/>
@@ -32,7 +30,7 @@ export default function App() {
               <Route path="detail2" element={<Detail2/>}/>
               <Route path="detail3" element={<Detail3/>}/>
             </Route>
-            <Route path="*" element={<NoMatch/>}/>
+            <Route path="*" element={<Memos/>}/>
           </Route>
         </Routes>
       </div>
@@ -47,7 +45,14 @@ function Layout() {
     {id: '3', isShow: false},
   ];
 
+
   const [shows, setShows] = useState(initialShow);
+
+  useEffect(() => {
+    const isShow = shows.find(show => show.isShow === true)
+    if(isShow) document.querySelector(".main").style.margin = "2.8rem 0 8px 14px";
+    else  document.querySelector(".main").style.margin = "1.4rem 0 8px 14px";
+    }, [initialShow]);
 
   const [menuShow, setMenuShow] = useState(false);
   const [menuShow1, setMenuShow1] = useState(false);
@@ -56,8 +61,9 @@ function Layout() {
         show.id === e.target.getAttribute('value')
             ? {...show, isShow: !show.isShow}
             : {...show, isShow: false}
-    ))
+    ));
   }
+  shows.forEach(show => console.log(show.isShow))
   return (
       <div>
         <nav>
@@ -72,10 +78,9 @@ function Layout() {
               UI Render</Link>
               {/*<ul>*/}
               <ul className={shows[0].isShow ? "nav-link active": "nav-link" }>
-                <li><Link to="/ui-render/component">첫번째 Component</Link></li>
-                <li><Link to="/ui-render/import-export">import/export</Link></li>
+                <li><Link to="/ui-render/component">Component Sample</Link></li>
                 <li><Link to="/ui-render/jsx-markup">jsx-markup</Link></li>
-                <li><Link to="/ui-render/jsx-script">jsx-script</Link></li>
+                <li><Link to="/ui-render/props-injection">props 전달</Link></li>
               </ul>
             </li>
             <li><Link to="/state">useState</Link></li>
@@ -92,7 +97,7 @@ function Layout() {
                 <li><Link to="/ref-effect/detail3">3333</Link></li>
               </ul>
             </li>
-            <li><Link to="/nothing-here">Nothing Here</Link></li>
+            <li><Link to="/nothing-here">Memos</Link></li>
           </ul>
         </nav>
         <Outlet/>
