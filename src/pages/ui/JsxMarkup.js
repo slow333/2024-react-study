@@ -1,7 +1,7 @@
-export default function FirstComonent(){
+export default function JsxMarkup(){
   return(
       <div className='main'>
-        <h3>첫번째 component</h3>
+        <h3>JsxMarkup</h3>
       </div>
   )
 }

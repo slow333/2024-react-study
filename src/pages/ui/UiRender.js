@@ -1,17 +1,10 @@
+import {Link, Outlet, Route} from "react-router-dom";
+import FirstComponent from "./FirstComponent";
+
 export default function UiRender() {
   return (
-      <div className='sub-nav'>
-        <h2>Ui rendering 관련 페이지</h2>
-        <nav>
-          <ul>
-            <li>
-              
-            </li>
-          </ul>
-        </nav>
-        <div className='main'>
-        </div>
-
+      <div className='main'>
+        <Outlet/>
       </div>
   )
 }

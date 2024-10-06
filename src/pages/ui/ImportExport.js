@@ -1,7 +1,7 @@
-export default function FirstComonent(){
+export default function ImportExport(){
   return(
       <div className='main'>
-        <h3>첫번째 component</h3>
+        <h3>ImportExport</h3>
       </div>
   )
 }

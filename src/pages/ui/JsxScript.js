@@ -1,7 +1,7 @@
-export default function FirstComonent(){
+export default function JsxScript(){
   return(
       <div className='main'>
-        <h3>첫번째 component</h3>
+        <h3>JsxScript</h3>
       </div>
   )
 }
