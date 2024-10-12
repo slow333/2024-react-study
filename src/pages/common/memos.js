@@ -11,6 +11,7 @@ export default function Memos() {
           <li>한줄 이동   : alt + shift + 화살표</li>
           <li>한줄 복사   : ctrl + D</li>
         </ul>
+        <p>한줄 복사 Shift + Alt + ↑ Shift + Alt + ↓, 한줄 삭제 Ctrl + shift + k, 한줄 이동 Alt + ↑ Alt + ↓</p>
       </section>
       <section>
         <h3>git 생성 및 업데이트</h3>

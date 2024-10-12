@@ -1,15 +1,26 @@
-export default function ProfileProps(){
-  return(
-      <Avatar width={100} name={"someone"} />
-  )
-}
+import {getImageUrl} from "./utils/CommonUtils";
 
-function Avatar({name, width}){
+function Avatar({person, size}){
   return(
       <img className="avatar"
-          src="https://i.imgur.com/1bX5QH6.jpg"
-          alt={name}
-          width={width}
+          src={getImageUrl(person)}
+          alt={person.name}
+          width={size}
       />
+  )
+}
+function Card({children}){
+  return (
+      <div className='card'>
+        {children}
+      </div>
+  )
+}
+export default function ProfileProps(){
+  return(
+      <Card>
+        <Avatar person={{ name: 'Limp', imageId: "MK3eW3A"}}
+        size={100}/>
+      </Card>
   )
 }

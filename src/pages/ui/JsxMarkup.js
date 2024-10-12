@@ -32,7 +32,7 @@ export default function JsxMarkup(){
   ... );
 }`}</code>
           <p>여러 스트링 객체를 합처서 지정하기</p>
-          <code>{`&lt;img className="avatar" src={baseUrl + person.imageId + '.jpg'}&gt;`}</code>
+          <code>{`<img className="avatar" src={baseUrl + person.imageId + '.jpg'}>`}</code>
         </section>
       </div>
   )

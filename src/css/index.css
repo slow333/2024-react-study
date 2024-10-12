@@ -19,10 +19,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  scroll-behavior: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-::-webkit-scrollbar {
-  display: none;
-}
+/*::-webkit-scrollbar {*/
+/*  display: none;*/
+/*}*/
 html,
 body {
   height: 100%;
@@ -41,7 +44,7 @@ nav {
 nav ul{
   display: flex;
   list-style: none;
-  gap: 1.3rem;
+  gap: 0.2rem;
   margin: 0;
   text-align: center;
 }
@@ -51,9 +54,9 @@ nav ul{
   top: 40px;
   left: 50%;
   right: auto;
+  transform: translateX(-50%);
   padding: 6px 0 4px 2rem;
   margin: 0;
-  transform: translateX(-50%);
   width: 100%;
   list-style: none;
   gap: 1.3rem;
@@ -74,15 +77,16 @@ nav a a:active, nav a:visited, nav a:link {
   text-decoration: none;
   color: #fefefe;
 }
-
 .main {
   font-size: 1.1rem;
   background: rgba(250, 250, 250, 0.55);
-  margin: 2.8rem 8px 8px 8px;
+  margin: 2.8rem 8px 0 8px;
+  padding-bottom: 20px;
 }
 section {
   border-top: cadetblue solid ;
   margin: 8px ;
+  background: whitesmoke;
 }
 h1{
   margin: 0;
@@ -107,11 +111,38 @@ p {
   margin: 0;
 }
 
-code {
+code, icode {
   display: block;
   font-family: 'Consolas', 'Nanum Gothic Coding', monospace;
   font-size: 0.95rem;
   word-wrap: break-word;
   white-space: pre;
   padding: 6px 0 6px 10px;
+}
+icode {
+  display: inline-block;
+}
+.card {
+  border: 1px solid #f2a;
+  border-radius: 8px;
+  padding: 8px;
+  width: auto;
+  display: inline-block;
+}
+img {
+  padding: 6px 8px 0 8px;
+}
+button {
+  font-size: 1.2rem;padding: 4px 18px;
+  background: #444444;color: #fefefe;
+  border-radius: 4px; width: 180px;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+}
+button:hover {
+  background: #888;color: lightgoldenrodyellow;
+}
+button:disabled {
+  background: #aaa;color: rgb(31, 31, 27);
 }
