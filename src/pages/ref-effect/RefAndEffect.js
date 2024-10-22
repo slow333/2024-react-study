@@ -10,7 +10,7 @@ function RefAndEffect() {
 
 function Detail1() {
   return (
-      <div>
+      <div className='main'>
         <h2>Detail1</h2>
         <p><Link to="/">Go to the home page</Link></p>
       </div>
@@ -19,7 +19,7 @@ function Detail1() {
 
 function Detail2() {
   return (
-      <div>
+      <div className='main'>
         <h2>Detail2</h2>
         <p><Link to="/">Go to the home page</Link></p>
       </div>
@@ -28,7 +28,7 @@ function Detail2() {
 
 function Detail3() {
   return (
-      <div>
+      <div className='main'>
         <h2>Detail3</h2>
         <p><Link to="/">Go to the home page</Link></p>
       </div>

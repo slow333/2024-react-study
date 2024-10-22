@@ -22,6 +22,7 @@ body {
   scroll-behavior: auto;
   overflow-y: scroll;
   overflow-x: hidden;
+  min-width: 700px !important;
 }
 /*::-webkit-scrollbar {*/
 /*  display: none;*/
@@ -34,53 +35,58 @@ body {
   color: #121212;
 }
 
-nav {
-  font-size: 1.2rem;
-  background: #444;
-  padding: 12px 0 0 0;
-  margin: 0;
-  width: 100%;
-}
 nav ul{
   display: flex;
+  background: #444;
+  font-size: 1rem;
   list-style: none;
-  gap: 0.2rem;
   margin: 0;
-  text-align: center;
+  padding: 0;
+  width: 100%;
 }
-.nav-link{
+nav ul li a{
+  padding: 6px 10px;
+  position: relative;
+}
+nav ul li.active > a{
+  background: #fefefe;
+  color: #333;
+  border-radius: 10px 10px 0 0;
+}
+nav ul li ul{
   display: none;
   position: absolute;
-  top: 40px;
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
-  padding: 6px 0 4px 2rem;
-  margin: 0;
-  width: 100%;
-  list-style: none;
-  gap: 1.3rem;
-  text-align: center;
-}
-.nav-link.active {
-  display: flex;
+  top: 24px;
   background: orangered;
-  color: whitesmoke;
+  font-size: 0.8rem;
+  padding: 4px;
+  margin: 0;
+  list-style: none;
+  width: 180px;
+  text-align: left;
 }
-
 nav ul li:hover ul {
   display: flex;
-  background: orangered;
+  flex-direction: column;
   color: whitesmoke;
+  margin: 0;
 }
-nav a a:active, nav a:visited, nav a:link {
+nav ul li ul li:hover {
+  background-color: #bbb;
+  color: orangered;
+}
+
+nav a a:active,
+nav a:visited,
+nav a:link {
   text-decoration: none;
   color: #fefefe;
 }
+
 .main {
-  font-size: 1.1rem;
+  font-size: 1rem;
   background: rgba(250, 250, 250, 0.55);
-  margin: 2.8rem 8px 0 8px;
+  margin: 14px 8px;
   padding-bottom: 20px;
 }
 section {
@@ -132,7 +138,7 @@ icode {
 img {
   padding: 6px 8px 0 8px;
 }
-button {
+.btn {
   font-size: 1.2rem;padding: 4px 18px;
   background: #444444;color: #fefefe;
   border-radius: 4px; width: 180px;
@@ -140,9 +146,22 @@ button {
   text-transform: uppercase;
   border: none;
 }
-button:hover {
+.btn:hover {
   background: #888;color: lightgoldenrodyellow;
 }
-button:disabled {
+.btn:disabled {
   background: #aaa;color: rgb(31, 31, 27);
+}
+table {
+  width: 100%;
+  border: 1px solid #444444;
+  border-collapse: collapse;
+}
+tr, td, th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+.selected {
+  background-color: orangered;
 }
